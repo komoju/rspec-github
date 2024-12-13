@@ -105,37 +105,6 @@ RSpec.describe RSpec::Github::Formatter do
     end
   end
 
-  describe '#example_pending' do
-    before { formatter.example_pending(notification) }
-
-    let(:notification) do
-      double(
-        'RSpec::Core::Notifications::SkippedExampleNotification',
-        example: example
-      )
-    end
-
-    context 'when pending' do
-      it 'outputs the GitHub annotation formatted warning' do
-        is_expected.to eq <<~MESSAGE
-
-          ::warning file=spec/models/user_spec.rb,line=12::#{example.full_description}%0A%0APending: #{pending_message}
-        MESSAGE
-      end
-    end
-
-    context 'when skipped' do
-      let(:skip) { true }
-
-      it 'outputs the GitHub annotation formatted warning' do
-        is_expected.to eq <<~MESSAGE
-
-          ::warning file=spec/models/user_spec.rb,line=12::#{example.full_description}%0A%0ASkipped: #{pending_message}
-        MESSAGE
-      end
-    end
-  end
-
   describe '#seed' do
     before { formatter.seed(notification) }
 
