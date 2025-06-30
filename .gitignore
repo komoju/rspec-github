@@ -12,3 +12,5 @@
 
 # Rubymine stuff
 .rakeTasks
+
+Gemfile.lock
