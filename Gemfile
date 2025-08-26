@@ -7,5 +7,5 @@ gemspec
 
 group :development do
   gem 'rspec', '~> 3.13'
-  gem 'rubocop', '~> 1.79.2'
+  gem 'rubocop', '~> 1.80.0'
 end
